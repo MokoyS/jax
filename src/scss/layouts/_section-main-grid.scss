@@ -1,0 +1,95 @@
+.section-expretise {
+  h1 {
+    text-align: center;
+    font-family: "mont";
+  }
+}
+
+#section-principal {
+  opacity: 100%;
+}
+
+.section-main {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.section-main-grid {
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
+  width: 900px;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 100px;
+  transition: .2s;
+  scroll-behavior: smooth;
+
+  
+
+  .text {
+    display: flex;
+    margin-bottom: 50px;
+    flex-direction: row;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 12rem;
+    font-family: "mont";
+    margin: 0 0 0 0;
+    letter-spacing: .2em ;
+  
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-family: "mont-light";
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+
+  p {
+    font-size: 1rem;
+    font-family: "mont-light";
+    margin: 0 0 1rem 0;
+  
+  
+  }
+}
+
+
+.section-main-presentation-illustration {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  max-width: 40%;
+  margin-left: 200px;
+}
+
+pre {
+  height: 100%;
+}
+
+@media screen and (max-width: 1330px) {
+  .section-main-grid {
+    flex-direction: column;
+
+    .section-main-presentation-illustration {
+      max-width: 100%;
+      margin: 100px 0 0 0;
+    }
+
+    pre {
+      width: 100%;
+    }
+  }
+
+
+}

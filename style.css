@@ -1,0 +1,822 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "mont";
+  src: url("src/fonts/Mont-HeavyDEMO.otf") format("opentype");
+}
+@font-face {
+  font-family: "mont-light";
+  src: url("src/fonts/Mont-ExtraLightDEMO.otf") format("opentype");
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "mont";
+  align-items: center;
+  height: 10vh;
+  padding: 0 5rem;
+  color: white;
+  justify-content: center;
+}
+header nav {
+  top: 45px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  gap: 40px;
+  width: auto;
+  padding: 0 3%;
+  background: rgba(251, 220, 255, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(251, 220, 255, 0.62);
+  z-index: 10;
+  transition: top 0.3s;
+}
+header .icons {
+  display: flex;
+  flex-direction: row;
+  margin: 0 1rem;
+}
+header .icons p {
+  margin: 0 1rem;
+}
+header li {
+  margin: 0 10px;
+  transition: all 0.5s;
+}
+header li:hover {
+  color: rgb(0, 0, 0);
+}
+header .links ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "mont-light";
+}
+
+#language-toggle {
+  color: white;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "mont";
+  margin-right: 12px;
+}
+
+.theme {
+  color: white;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+
+.container {
+  padding: 0 14rem;
+}
+
+.button-54 {
+  font-family: "mont";
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
+}
+.rainbow-hover {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #2B3044;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  position: relative;
+  line-height: 24px;
+  border-radius: 9px;
+  box-shadow: 0px 1px 2px #2B3044, 0px 4px 16px #2B3044;
+  transform-style: preserve-3d;
+  transform: scale(var(--s, 1)) perspective(600px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  perspective: 600px;
+  transition: transform 0.1s;
+  font-family: "mont";
+  letter-spacing: 0.2em;
+}
+
+.rainbow-hover:active {
+  transition: 0.3s;
+  transform: scale(0.93);
+}
+
+#wrapper {
+  text-align: center;
+}
+
+.sub {
+  color: rgb(100, 220, 220);
+  letter-spacing: 1em;
+}
+
+/* Our mixin positions a copy of our text
+directly on our existing text, while
+also setting content to the appropriate
+text set in the data-text attribute. */
+.glitch {
+  position: relative;
+  color: white;
+  font-size: 4em;
+  letter-spacing: 0.2em;
+  /* Animation provies a slight random skew. Check bottom of doc
+  for more information on how to random skew. */
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  /* Creates an initial clip for our glitch. This works in
+  a typical top,right,bottom,left fashion and creates a mask
+  to only show a certain part of the glitch at a time. */
+  clip: rect(44px, 450px, 56px, 0);
+  /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+  with an alternating animation to keep things fresh. */
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: -2px;
+  text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+/* Creates an animation with 20 steaps. For each step, it calculates 
+a percentage for the specific step. It then generates a random clip
+box to be used for the random glitch effect. Also adds a very subtle
+skew to change the 'thickness' of the glitch.*/
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 92px, 0);
+    transform: skew(0.54deg);
+  }
+  5% {
+    clip: rect(94px, 9999px, 23px, 0);
+    transform: skew(0.67deg);
+  }
+  10% {
+    clip: rect(14px, 9999px, 64px, 0);
+    transform: skew(0.19deg);
+  }
+  15% {
+    clip: rect(36px, 9999px, 87px, 0);
+    transform: skew(1deg);
+  }
+  20% {
+    clip: rect(23px, 9999px, 84px, 0);
+    transform: skew(0.61deg);
+  }
+  25% {
+    clip: rect(92px, 9999px, 72px, 0);
+    transform: skew(0.52deg);
+  }
+  30% {
+    clip: rect(57px, 9999px, 50px, 0);
+    transform: skew(0.95deg);
+  }
+  35% {
+    clip: rect(25px, 9999px, 5px, 0);
+    transform: skew(0.49deg);
+  }
+  40% {
+    clip: rect(57px, 9999px, 32px, 0);
+    transform: skew(0.43deg);
+  }
+  45% {
+    clip: rect(14px, 9999px, 72px, 0);
+    transform: skew(0.8deg);
+  }
+  50% {
+    clip: rect(99px, 9999px, 91px, 0);
+    transform: skew(0.98deg);
+  }
+  55% {
+    clip: rect(24px, 9999px, 35px, 0);
+    transform: skew(0.8deg);
+  }
+  60% {
+    clip: rect(18px, 9999px, 48px, 0);
+    transform: skew(0.08deg);
+  }
+  65% {
+    clip: rect(29px, 9999px, 8px, 0);
+    transform: skew(1deg);
+  }
+  70% {
+    clip: rect(94px, 9999px, 4px, 0);
+    transform: skew(0.35deg);
+  }
+  75% {
+    clip: rect(73px, 9999px, 35px, 0);
+    transform: skew(0.02deg);
+  }
+  80% {
+    clip: rect(26px, 9999px, 33px, 0);
+    transform: skew(0.59deg);
+  }
+  85% {
+    clip: rect(23px, 9999px, 24px, 0);
+    transform: skew(0.13deg);
+  }
+  90% {
+    clip: rect(16px, 9999px, 20px, 0);
+    transform: skew(0.14deg);
+  }
+  95% {
+    clip: rect(7px, 9999px, 15px, 0);
+    transform: skew(0.46deg);
+  }
+  100% {
+    clip: rect(87px, 9999px, 84px, 0);
+    transform: skew(0.4deg);
+  }
+}
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(92px, 9999px, 85px, 0);
+    transform: skew(0.63deg);
+  }
+  5% {
+    clip: rect(42px, 9999px, 47px, 0);
+    transform: skew(0.86deg);
+  }
+  10% {
+    clip: rect(33px, 9999px, 81px, 0);
+    transform: skew(0.07deg);
+  }
+  15% {
+    clip: rect(88px, 9999px, 87px, 0);
+    transform: skew(0.39deg);
+  }
+  20% {
+    clip: rect(80px, 9999px, 43px, 0);
+    transform: skew(0.4deg);
+  }
+  25% {
+    clip: rect(73px, 9999px, 94px, 0);
+    transform: skew(0.48deg);
+  }
+  30% {
+    clip: rect(59px, 9999px, 77px, 0);
+    transform: skew(0.92deg);
+  }
+  35% {
+    clip: rect(39px, 9999px, 16px, 0);
+    transform: skew(0.72deg);
+  }
+  40% {
+    clip: rect(75px, 9999px, 97px, 0);
+    transform: skew(0.24deg);
+  }
+  45% {
+    clip: rect(59px, 9999px, 17px, 0);
+    transform: skew(0.59deg);
+  }
+  50% {
+    clip: rect(20px, 9999px, 9px, 0);
+    transform: skew(0.92deg);
+  }
+  55% {
+    clip: rect(48px, 9999px, 42px, 0);
+    transform: skew(0.23deg);
+  }
+  60% {
+    clip: rect(91px, 9999px, 25px, 0);
+    transform: skew(0.74deg);
+  }
+  65% {
+    clip: rect(51px, 9999px, 51px, 0);
+    transform: skew(0.33deg);
+  }
+  70% {
+    clip: rect(96px, 9999px, 27px, 0);
+    transform: skew(0.9deg);
+  }
+  75% {
+    clip: rect(90px, 9999px, 97px, 0);
+    transform: skew(0.52deg);
+  }
+  80% {
+    clip: rect(35px, 9999px, 59px, 0);
+    transform: skew(0.32deg);
+  }
+  85% {
+    clip: rect(60px, 9999px, 35px, 0);
+    transform: skew(0.85deg);
+  }
+  90% {
+    clip: rect(85px, 9999px, 71px, 0);
+    transform: skew(0.49deg);
+  }
+  95% {
+    clip: rect(82px, 9999px, 32px, 0);
+    transform: skew(0.69deg);
+  }
+  100% {
+    clip: rect(10px, 9999px, 7px, 0);
+    transform: skew(0.38deg);
+  }
+}
+@keyframes glitch-skew {
+  0% {
+    transform: skew(-3deg);
+  }
+  10% {
+    transform: skew(1deg);
+  }
+  20% {
+    transform: skew(5deg);
+  }
+  30% {
+    transform: skew(-3deg);
+  }
+  40% {
+    transform: skew(0deg);
+  }
+  50% {
+    transform: skew(4deg);
+  }
+  60% {
+    transform: skew(-3deg);
+  }
+  70% {
+    transform: skew(-3deg);
+  }
+  80% {
+    transform: skew(2deg);
+  }
+  90% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(-3deg);
+  }
+}
+.section-expretise h1 {
+  text-align: center;
+  font-family: "mont";
+}
+
+#section-principal {
+  opacity: 100%;
+}
+
+.section-main {
+  display: flex;
+  justify-content: center;
+}
+
+.section-main-grid {
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
+  width: 900px;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 100px;
+  transition: 0.2s;
+  scroll-behavior: smooth;
+}
+.section-main-grid .text {
+  display: flex;
+  margin-bottom: 50px;
+  flex-direction: row;
+}
+.section-main-grid button {
+  margin-top: 20px;
+}
+.section-main-grid h1 {
+  font-size: 12rem;
+  font-family: "mont";
+  margin: 0 0 0 0;
+  letter-spacing: 0.2em;
+}
+.section-main-grid h3 {
+  font-size: 2rem;
+  font-family: "mont-light";
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.section-main-grid p {
+  font-size: 1rem;
+  font-family: "mont-light";
+  margin: 0 0 1rem 0;
+}
+
+.section-main-presentation-illustration {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  max-width: 40%;
+  margin-left: 200px;
+}
+
+pre {
+  height: 100%;
+}
+
+@media screen and (max-width: 1330px) {
+  .section-main-grid {
+    flex-direction: column;
+  }
+  .section-main-grid .section-main-presentation-illustration {
+    max-width: 100%;
+    margin: 100px 0 0 0;
+  }
+  .section-main-grid pre {
+    width: 100%;
+  }
+}
+.section-expretise .titre {
+  width: 100%;
+  font-size: 72px;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+
+.section-expretise-grid {
+  height: 900px;
+  display: grid;
+  grid-template-columns: 120px 120px 120px 120px 120px 120px;
+  grid-template-rows: 120px 120px 120px 120px 120px 120px;
+  gap: 40px;
+  justify-content: center;
+  scale: 1;
+  perspective: 10px;
+}
+.section-expretise-grid .icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.section-expretise-grid .card:nth-child(1) {
+  grid-column: 1/3;
+  grid-row: 3/5;
+  background: rgba(239, 249, 218, 0.2705882353);
+}
+.section-expretise-grid .card:nth-child(1) .text {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-expretise-grid .card:nth-child(1) h1 {
+  text-align: center;
+  font-size: 30px;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: "mont";
+}
+.section-expretise-grid .card:nth-child(1) img {
+  height: 100%;
+  position: absolute;
+  filter: blur(0.6rem);
+}
+.section-expretise-grid .card:nth-child(2) {
+  grid-column: 3/5;
+  grid-row: 3/5;
+  background: rgba(249, 235, 223, 0.2705882353);
+}
+.section-expretise-grid .card:nth-child(2) img {
+  filter: opacity(0.06);
+  height: 100%;
+  position: absolute;
+}
+.section-expretise-grid .card:nth-child(2) .text {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-expretise-grid .card:nth-child(2) h1 {
+  text-align: center;
+  font-size: 40px;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: "mont";
+}
+.section-expretise-grid .card:nth-child(2) img {
+  display: flex;
+  filter: blur(0.6rem);
+  height: 100%;
+  position: absolute;
+}
+.section-expretise-grid .card:nth-child(3) {
+  grid-column: 5/7;
+  grid-row: 1/3;
+  background: rgba(205, 245, 246, 0.2705882353);
+}
+.section-expretise-grid .card:nth-child(3) .text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.section-expretise-grid .card:nth-child(3) h1 {
+  text-align: left;
+  font-size: 40px;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: "mont";
+}
+.section-expretise-grid .card:nth-child(3) img {
+  filter: blur(0.2rem);
+}
+.section-expretise-grid .card:nth-child(4) {
+  grid-column: 1/5;
+  grid-row: 1/3;
+  background: rgba(203, 228, 249, 0.2705882353);
+}
+.section-expretise-grid .card:nth-child(4) .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: white;
+  font-size: 2em;
+  margin-left: 40px;
+  height: 100%;
+  justify-content: center;
+}
+.section-expretise-grid .card:nth-child(4) .text h1 {
+  text-align: left;
+  font-size: 40px;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: "mont";
+}
+.section-expretise-grid .card:nth-child(4) .text img {
+  position: absolute;
+  height: 120%;
+  margin-left: 150px;
+  filter: blur(1rem);
+}
+.section-expretise-grid .card:nth-child(5) {
+  grid-column: 5/7;
+  grid-row: 3/5;
+  background: rgba(249, 216, 214, 0.2705882353);
+}
+.section-expretise-grid .card:nth-child(5) .text {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-expretise-grid .card:nth-child(5) h1 {
+  text-align: center;
+  font-size: 40px;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: "mont";
+}
+.section-expretise-grid .card:nth-child(5) img {
+  filter: blur(0.6rem);
+  height: 80%;
+  position: absolute;
+}
+.section-expretise-grid .card:nth-child(6) {
+  grid-column: 1/3;
+  grid-row: 5/7;
+  background: rgba(214, 205, 234, 0.2705882353);
+}
+.section-expretise-grid .card:nth-child(6) .text {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-expretise-grid .card:nth-child(6) h1 {
+  text-align: center;
+  font-size: 40px;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: "mont";
+}
+.section-expretise-grid .card:nth-child(6) img {
+  filter: blur(0.8rem);
+  position: absolute;
+  height: 100%;
+}
+.section-expretise-grid .card:nth-child(7) {
+  grid-column: 3/7;
+  grid-row: 5/7;
+  background: rgba(255, 199, 251, 0.445);
+}
+.section-expretise-grid .card:nth-child(7) .text {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-expretise-grid .card:nth-child(7) h1 {
+  text-align: center;
+  font-size: 40px;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: "mont";
+}
+.section-expretise-grid .card:nth-child(7) img {
+  display: flex;
+  filter: blur(0.8rem);
+  height: 100%;
+  position: absolute;
+}
+
+.card {
+  /* From https://css.glass */
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: 0.5s !important;
+}
+.card h1 {
+  z-index: 9;
+}
+.card p {
+  font-family: "mont-light";
+  margin: 10px 20px;
+  text-align: center;
+  color: white;
+}
+
+.card:hover {
+  scale: 1.05;
+}
+
+.section-about {
+  width: 100%;
+}
+.section-about .team {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
+}
+.section-about .top h1 {
+  width: 100%;
+  font-size: 24vw;
+  background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 120px;
+  font-family: "mont";
+  text-align: center;
+}
+
+.illustration {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -60px;
+}
+
+.about {
+  margin: 0 40px;
+  border-radius: 25px;
+  min-width: 235px;
+  max-width: 320px;
+}
+.about img {
+  height: 300px;
+  object-fit: cover;
+}
+.about h2 {
+  font-size: 25px;
+  font-family: "mont";
+  color: white;
+  text-align: center;
+}
+.about h3 {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "mont-light";
+  color: white;
+  text-align: center;
+}
+.about p {
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: "mont-light";
+  color: transparent;
+  overflow-wrap: break-word;
+}
+
+.presentation {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.presentation p {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  max-width: 50%;
+  text-align: center;
+}
+
+footer {
+  height: 200px;
+}
+
+@font-face {
+  font-family: "mont";
+  src: url("src/fonts/Mont-HeavyDEMO.otf") format("opentype");
+}
+@font-face {
+  font-family: "mont-light";
+  src: url("src/fonts/Mont-ExtraLightDEMO.otf") format("opentype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background: rgb(36, 44, 70);
+  background: linear-gradient(180deg, rgb(36, 44, 70) 0%, rgb(82, 0, 99) 47%, rgb(0, 89, 107) 100%);
+}
+
+main {
+  gap: 200px;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+
+
+/*# sourceMappingURL=style.css.map */

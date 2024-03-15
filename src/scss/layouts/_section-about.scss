@@ -1,0 +1,78 @@
+.section-about {
+    // background-color: red;
+    width: 100%;
+    .team {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .top {
+        h1 {
+            width: 100%;
+            font-size: 24vw;
+            background-image: linear-gradient(to right top, #e9acff, #e9c3ff, #ecd8ff, #f3ecff, #ffffff);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 120px;
+            font-family: "mont";
+            text-align: center;
+        }
+    }
+}
+
+.illustration {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -60px;
+}
+
+.about {
+    margin: 0 40px;
+    border-radius: 25px;
+    min-width: 235px;
+    max-width: 320px;
+    
+    img {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    h2 {
+        font-size: 25px;
+        font-family: "mont";
+        color: white;
+        text-align: center;
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "mont-light";
+        color: white;
+        text-align: center;
+    }
+
+    p {
+        margin-top: 40px;
+        font-size: 20px;
+        font-family: "mont-light";
+        color: transparent;
+        overflow-wrap: break-word;
+    }
+
+}
+
+.presentation {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    p {
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+        color: white;
+        max-width: 50%;
+        text-align: center;
+    }
+}
